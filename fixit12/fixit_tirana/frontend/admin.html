@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="sq"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paneli — FixIt Tirana</title><link rel="stylesheet" href="styles.css"></head>
+<body class="admin-page">
+  <aside class="sidebar">
+    <a class="brand" href="/admin"><span class="brand-mark">F</span><span>fixit<span class="brand-light">tirana</span></span></a>
+    <div class="side-label">MENAXHIMI</div>
+    <a class="side-link active" href="#overview"><span>▦</span> Përmbledhje</a>
+    <a class="side-link" href="#reports"><span>☷</span> Raportimet <b id="sideCount">0</b></a>
+    <a class="side-link" href="#demo"><span>✎</span> Raportime me AI</a>
+    <a class="side-link" href="#assistant"><span>✳</span> Asistenti AI</a>
+    <a class="side-link" href="#recommendations"><span>◇</span> Rekomandimet</a>
+    <div class="sidebar-bottom"><div class="admin-avatar">A</div><div><b>Administrator</b><small>Paneli i menaxhimit</small></div><form action="/logout" method="post"><button class="logout-button" title="Dil">↗</button></form></div>
+  </aside>
+  <main class="admin-main">
+    <header class="admin-top"><div><span class="eyebrow">E MARTË · QYTETI YNË</span><h1>Mirë se erdhe në panel.</h1><p>Ja çfarë po ndodh me raportimet e qytetit.</p></div><a href="/" target="_blank" class="outline-button">Shiko faqen publike ↗</a></header>
+    <section id="overview" class="stats-grid">
+      <article class="stat-card"><span>Raportime gjithsej</span><b id="totalCount">—</b><small>Regjistruar në platformë</small><i class="stat-icon">▤</i></article>
+      <article class="stat-card"><span>Në shqyrtim</span><b id="reviewCount">—</b><small>Kërkojnë vëmendje</small><i class="stat-icon">◷</i></article>
+      <article class="stat-card"><span>Në proces</span><b id="progressCount">—</b><small>Po trajtohen</small><i class="stat-icon">↗</i></article>
+      <article class="stat-card"><span>Të zgjidhura</span><b id="doneCount">—</b><small>Shënuar si të përfunduara</small><i class="stat-icon">✓</i></article>
+    </section>
+    <section id="reports" class="panel-section">
+      <div class="section-heading"><div><span class="eyebrow">QYTETARËT KANË RAPORTUAR</span><h2>Raportimet e fundit</h2></div><div class="filters"><input id="searchReports" placeholder="Kërko raportim..."><select id="statusFilter"><option>Të gjitha</option><option>E re</option><option>Në shqyrtim</option><option>Në proces</option><option>E zgjidhur</option></select></div></div>
+      <div class="table-wrap"><table><thead><tr><th>RAPORTIMI</th><th>VENDNDODHJA</th><th>DATA</th><th>STATUSI</th><th></th></tr></thead><tbody id="reportsBody"><tr><td colspan="5" class="empty-cell">Duke ngarkuar raportimet...</td></tr></tbody></table></div>
+    </section>
+    <section id="demo" class="panel-section">
+      <div class="section-heading"><div><span class="eyebrow">RAPORTIME SHEMBULL · NGA QYTETARË TË NDRYSHËM</span><h2>Sugjerime zgjidhjesh nga AI</h2></div></div>
+      <p class="demo-intro">Për çdo raportim, kërko nga Gemini 3 zgjidhje të mundshme, pastaj zgjidh atë që të duket më e përshtatshme.</p>
+      <div id="demoGrid" class="demo-grid"></div>
+    </section>
+    <section class="admin-lower">
+      <div id="assistant" class="assistant-card">
+        <div class="assistant-heading"><div class="ai-symbol">✳</div><div><span class="eyebrow">GOOGLE GEMINI</span><h2>Asistenti AI</h2></div><span class="online-dot">●</span></div>
+        <p class="assistant-intro">Pyet për raportimet, kërko ide për zgjidhje ose analizo një problem të caktuar.</p>
+        <label for="aiReportSelect">Lidhe bisedën me një raportim (opsionale)</label><select id="aiReportSelect"><option value="">Pa raportim të zgjedhur</option></select>
+        <div id="chatMessages" class="chat-messages"><div class="chat-bubble assistant-bubble">Përshëndetje! Mund të të ndihmoj të analizosh raportimet dhe të mendosh për hapat e mëtejshëm. Çfarë dëshiron të dish?</div></div>
+        <form id="chatForm" class="chat-form"><input id="chatInput" placeholder="Shkruaj pyetjen..." maxlength="2000" required><button type="submit" aria-label="Dërgo">↑</button></form>
+        <div class="chat-footer"><span>AI mund të gabojë. Verifiko informacionin përpara vendimeve.</span><button id="clearChat" type="button">Pastro bisedën</button></div>
+      </div>
+      <div id="recommendations" class="recommendations-card">
+        <div class="section-heading compact"><div><span class="eyebrow">HAPA TË MUNDSHËM</span><h2>Rekomandimet</h2></div></div>
+        <div id="analysisArea" class="analysis-area"><div class="analysis-placeholder"><span>✧</span><b>Analizo një raportim</b><p>Zgjidh një raportim dhe përdor butonin më poshtë për të marrë një përmbledhje, prioritet dhe hapa të sugjeruar nga Gemini.</p></div></div>
+        <button id="analyzeButton" class="primary-button full" type="button">Analizo raportimin e zgjedhur <span>✳</span></button>
+        <button id="saveRecommendation" class="outline-button full hidden" type="button">Ruaj rekomandimin</button>
+        <p id="analysisMessage" class="form-message" role="status"></p>
+      </div>
+    </section>
+    <footer class="admin-footer">FixIt Tirana · Panel administrimi <span>Informacionet e AI janë sugjerime, jo vendime zyrtare.</span></footer>
+  </main>
+  <script src="admin.js"></script>
+</body></html>

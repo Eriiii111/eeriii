@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FixIt Tirana — Raporto një problem</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="public-page">
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-mark">F</span><span>fixit<span class="brand-light">tirana</span></span></a>
+    <nav><a href="#si-funksionon">Si funksionon</a><a class="nav-button" href="/login.html">Hyr si administrator <span>↗</span></a></nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow"><i></i> QYTET MË I MIRË, SË BASHKU</span>
+        <h1>Tirana fillon<br>me <em>zërin tënd.</em></h1>
+        <p>Ke vënë re diçka që duhet rregulluar në lagjen tënde? Na trego. Një raportim i qartë është hapi i parë drejt një qyteti më të mirë.</p>
+        <div class="hero-note"><span class="note-icon">✳</span><span><b>Çdo problem ka rëndësi.</b><br><small>Raportimi yt ruhet në platformë për shqyrtim.</small></span></div>
+      </div>
+      <div class="form-card">
+        <div class="form-heading"><div><span class="eyebrow">RAPORTIM I RI</span><h2>Çfarë duhet rregulluar?</h2></div><span class="step">01 / 01</span></div>
+        <form id="reportForm">
+          <label for="category">Kategoria e problemit</label>
+          <select id="category" name="category" required>
+            <option value="">Zgjidh kategorinë</option>
+            <option>Rrugë dhe trotuare</option><option>Ndriçim publik</option>
+            <option>Ujë dhe kanalizime</option><option>Mbetje dhe pastërti</option>
+            <option>Hapësira publike</option><option>Sinjalistikë dhe trafik</option><option>Tjetër</option>
+          </select>
+          <label for="location">Ku ndodhet problemi?</label>
+          <input id="location" name="location" placeholder="P.sh. Rruga e Kavajës, pranë..." required maxlength="250">
+          <label for="description">Përshkruaje problemin</label>
+          <textarea id="description" name="description" rows="4" maxlength="3000" placeholder="Na jep sa më shumë detaje që të jetë e mundur..." required></textarea>
+          <div class="upload-wrap"><label for="photo">Foto (opsionale)</label><input id="photo" name="photo" type="file" accept=".jpg,.jpeg,.png,.webp"><small>JPG, PNG ose WEBP · Maksimumi 5 MB</small></div>
+          <button class="primary-button full" type="submit">Dërgo raportimin <span>→</span></button>
+          <p id="formMessage" class="form-message" role="status"></p>
+          <p class="privacy-note">Të dhënat përdoren vetëm për administrimin e raportimit në këtë platformë.</p>
+        </form>
+      </div>
+    </section>
+    <section id="si-funksionon" class="how-section">
+      <div><span class="eyebrow">THJESHTË. QARTË. NË KOMUNITET.</span><h2>Një qytet më i mirë<br>nis me një hap të vogël.</h2></div>
+      <div class="how-steps">
+        <article><span>01</span><h3>Vëre problemin</h3><p>Identifiko një çështje që ndikon në hapësirën publike.</p></article>
+        <article><span>02</span><h3>Na e trego</h3><p>Përshkruaje dhe vendos vendndodhjen sa më saktë.</p></article>
+        <article><span>03</span><h3>Ndiq shqyrtimin</h3><p>Ekipi administrues mund ta shqyrtojë dhe përditësojë statusin.</p></article>
+      </div>
+    </section>
+  </main>
+  <footer><a class="brand" href="/"><span class="brand-mark">F</span><span>fixit<span class="brand-light">tirana</span></span></a><span>Një ide për një Tiranë më të kujdesshme.</span><span>© 2026 FixIt Tirana</span></footer>
+  <script src="public.js"></script>
+</body></html>

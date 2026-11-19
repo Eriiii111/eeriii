@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="sq"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hyrje — FixIt Tirana</title><link rel="stylesheet" href="styles.css"></head>
+<body class="login-page">
+  <a class="brand login-brand" href="/"><span class="brand-mark">F</span><span>fixit<span class="brand-light">tirana</span></span></a>
+  <main class="login-layout">
+    <section class="login-art">
+      <span class="eyebrow"><i></i> HAPËSIRË ADMINISTRIMI</span>
+      <h1>Ndryshimi<br>fillon nga<br><em>kujdesi.</em></h1>
+      <p>Menaxho raportimet, kupto nevojat e qytetit dhe ndihmo që çdo çështje të marrë vëmendjen e duhur.</p>
+      <div class="art-stats"><div><b>01</b><span>Shqyrto raportimet</span></div><div><b>02</b><span>Vendos prioritetet</span></div><div><b>03</b><span>Ndiq progresin</span></div></div>
+      <div class="decor-circle"></div>
+    </section>
+    <section class="login-panel">
+      <div class="login-box">
+        <span class="eyebrow">MIRË SE U KTHEVE</span><h2>Hyr në llogari</h2><p>Shkruaj kredencialet e administratorit për të vazhduar.</p>
+        <form action="/login" method="post">
+          <label for="username">Emri i përdoruesit</label><input id="username" name="username" autocomplete="username" placeholder="Emri i përdoruesit" required>
+          <label for="password">Fjalëkalimi</label><input id="password" name="password" type="password" autocomplete="current-password" placeholder="••••••••••" required>
+          <button class="primary-button full" type="submit">Hyr në panel <span>→</span></button>
+        </form>
+        <a class="back-link" href="/">← Kthehu te raportimet publike</a>
+        <small class="login-hint">Kjo hyrje është vetëm për administratorët e autorizuar.</small>
+      </div>
+    </section>
+  </main>
+  <script>
+  const form = document.querySelector("form");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const user = form.querySelector("input[name=username]").value.trim().toLowerCase();
+    window.location.href = user === "admin" ? "admin.html" : "index.html";
+  });
+</script>
+</body></html>
