@@ -1,6 +1,11 @@
 <!DOCTYPE html>
-<html lang="sq"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hyrje — FixIt Tirana</title><link rel="stylesheet" href="styles.css"></head>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hyrje — FixIt Tirana</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
 <body class="login-page">
   <a class="brand login-brand" href="/"><span class="brand-mark">F</span><span>fixit<span class="brand-light">tirana</span></span></a>
   <main class="login-layout">
@@ -13,10 +18,15 @@
     </section>
     <section class="login-panel">
       <div class="login-box">
-        <span class="eyebrow">MIRË SE U KTHEVE</span><h2>Hyr në llogari</h2><p>Shkruaj kredencialet e administratorit për të vazhduar.</p>
+        <span class="eyebrow">MIRË SE U KTHEVE</span>
+        <h2>Hyr në llogari</h2>
+        <p>Shkruaj kredencialet e administratorit për të vazhduar.</p>
+        <p id="loginError" class="form-message error" role="alert" hidden>Kredencialet nuk janë të sakta. Provo përsëri.</p>
         <form action="/login" method="post">
-          <label for="username">Emri i përdoruesit</label><input id="username" name="username" autocomplete="username" placeholder="Emri i përdoruesit" required>
-          <label for="password">Fjalëkalimi</label><input id="password" name="password" type="password" autocomplete="current-password" placeholder="••••••••••" required>
+          <label for="username">Emri i përdoruesit</label>
+          <input id="username" name="username" autocomplete="username" placeholder="Emri i përdoruesit" required>
+          <label for="password">Fjalëkalimi</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="••••••••••" required>
           <button class="primary-button full" type="submit">Hyr në panel <span>→</span></button>
         </form>
         <a class="back-link" href="/">← Kthehu te raportimet publike</a>
@@ -25,11 +35,9 @@
     </section>
   </main>
   <script>
-  const form = document.querySelector("form");
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const user = form.querySelector("input[name=username]").value.trim().toLowerCase();
-    window.location.href = user === "admin" ? "admin.html" : "index.html";
-  });
-</script>
-</body></html>
+    if (new URLSearchParams(window.location.search).has("error")) {
+      document.getElementById("loginError").hidden = false;
+    }
+  </script>
+</body>
+</html>
